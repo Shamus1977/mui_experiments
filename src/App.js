@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import TestCOntainer from "./components/TestCOntainer";
+import TestHeading from "./components/TestHeading";
+import TestImageList from "./components/TestImageList";
+import TestPostCard from "./components/TestPostCard";
+import TestBusinessInfoPaper from "./components/TestBusinessInfoPaper";
+import {business} from './data/business';
+import { posts} from "./data/post";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TestHeading businessName={business.name} />
+      <TestBusinessInfoPaper business={business} />
+      <TestImageList images={business.images} />
+      {posts.map(post => (
+        <TestPostCard key={post.id} post={post} />
+      ))}
+    </>
   );
 }
 
